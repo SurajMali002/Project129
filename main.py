@@ -32,10 +32,10 @@ for i in p_d1:
     p_d.append(i)
 for j in p_d2:
     p_d.append(j)
-with open("final.csv",'w',encoding='utf8') as f:
+with open("Final.csv",'w',encoding='utf8') as f:
     csvwriter = csv.writer(f)
     csvwriter.writerow(h)   
     csvwriter.writerows(p_d)
     
-df = pd.read_csv('final.csv')
+df = pd.read_csv('Final.csv')
 df.tail(8)
