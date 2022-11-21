@@ -1,7 +1,7 @@
 import csv
 import pandas as pd
 
-file1 = 'bright_stars.csv'
+file1 = 'Star.csv'
 file2 = 'unit_converted_stars.csv'
 
 d1 = []
