@@ -1,33 +1,41 @@
 import csv
-dataset_1=[]
-dataset_2=[]
+import pandas as pd
 
-with open("Star.csv",'r') as f:
-    csvreader = csv.reader(f)
-    for row in csvreader:
-        dataset_1.append(row)
+file1 = 'bright_stars.csv'
+file2 = 'unit_converted_stars.csv'
 
-with open("Dwarf1.csv",'r') as f:
-    csvreader = csv.reader(f)
-    for row in csvreader:
-        dataset_2.append(row)
+d1 = []
+d2 = []
+with open(file1,'r',encoding='utf8') as f:
+    csv_reader =csv.reader(f)
+    
+    for i in csv_reader:
+        d1.append(i)
+        
+with open(file2,'r',encoding='utf8') as f:
+    csv_reader = csv.reader(f)
+    
+    for i in csv_reader:
+        d2.append(i)
 
-h1 = dataset_1[0]
-h2 = dataset_2[0]
+h1 = d1[0]
+h2 = d2[0]
 
-sd1 = dataset_1[1:]
-sd2 = dataset_2[1:]
+p_d1 = d1[1:]
+p_d2 = d2[1:]
 
-h = [h1+h2]
-sd = []
+h = h1+h2
 
-for i in sd1:
-    sd.append(i)
+p_d =[]
 
-for i in sd2:
-    sd.append(i)
-
-with open("Final.csv", "a+") as f:
+for i in p_d1:
+    p_d.append(i)
+for j in p_d2:
+    p_d.append(j)
+with open("total_stars.csv",'w',encoding='utf8') as f:
     csvwriter = csv.writer(f)
-    csvwriter.writerow(h)
-    csvwriter.writerows(sd)
+    csvwriter.writerow(h)   
+    csvwriter.writerows(p_d)
+    
+df = pd.read_csv('total_stars.csv')
+df.tail(8)
